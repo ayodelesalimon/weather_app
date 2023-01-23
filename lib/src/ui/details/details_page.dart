@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
+
 import 'package:weather_app_test/src/model/weather_data.dart';
 import '../../widgets/custom_textstyle.dart';
 import '../../widgets/extra_weather_widget.dart';
@@ -8,11 +8,11 @@ import '../../widgets/extra_weather_widget.dart';
 class DetailPage extends StatelessWidget {
   final Weather tomorrowTemp;
   final List<Weather> sevenDay;
-  DetailPage(this.tomorrowTemp, this.sevenDay);
+   const DetailPage(this.tomorrowTemp, this.sevenDay, {Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff030317),
+      backgroundColor: const Color(0xff030317),
       body: Column(
         children: [TomorrowWeather(tomorrowTemp), SevenDays(sevenDay)],
       ),
@@ -22,7 +22,7 @@ class DetailPage extends StatelessWidget {
 
 class TomorrowWeather extends StatelessWidget {
   final Weather tomorrowTemp;
-  TomorrowWeather(this.tomorrowTemp);
+   const TomorrowWeather(this.tomorrowTemp, {Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -36,7 +36,7 @@ class TomorrowWeather extends StatelessWidget {
       child: Column(
         children: [
           Padding(
-            padding: EdgeInsets.only(top: 50, right: 30, left: 30, bottom: 20),
+            padding: const EdgeInsets.only(top: 50, right: 30, left: 30, bottom: 20),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -44,12 +44,12 @@ class TomorrowWeather extends StatelessWidget {
                     onTap: () {
                       Navigator.pop(context);
                     },
-                    child: Icon(
+                    child: const Icon(
                       Icons.arrow_back_ios,
                       color: Colors.white,
                     )),
                 Row(
-                  children: [
+                  children: const [
                     Icon(
                       Icons.calendar_today,
                       color: Colors.white,
@@ -61,12 +61,12 @@ class TomorrowWeather extends StatelessWidget {
                     )
                   ],
                 ),
-                Icon(Icons.more_vert, color: Colors.white)
+                const Icon(Icons.more_vert, color: Colors.white)
               ],
             ),
           ),
           Padding(
-            padding: EdgeInsets.all(8),
+            padding: const EdgeInsets.all(8),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -83,11 +83,11 @@ class TomorrowWeather extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Text(
+                    const Text(
                       "Tomorrow",
                       style: TextStyle(fontSize: 24),
                     ),
-                    Container(
+                    SizedBox(
                       height: 105,
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.end,
@@ -103,7 +103,7 @@ class TomorrowWeather extends StatelessWidget {
                         ],
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 6,
                     ),
                     Text(
@@ -117,15 +117,15 @@ class TomorrowWeather extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: EdgeInsets.only(
+            padding: const EdgeInsets.only(
               bottom: 20,
               right: 50,
               left: 50,
             ),
             child: Column(
               children: [
-                Divider(color: Colors.white),
-                SizedBox(
+                const Divider(color: Colors.white),
+                const SizedBox(
                   height: 10,
                 ),
                 ExtraWeather(tomorrowTemp)
@@ -140,7 +140,7 @@ class TomorrowWeather extends StatelessWidget {
 
 class SevenDays extends StatelessWidget {
   final List<Weather> sevenDay;
-  SevenDays(this.sevenDay);
+  const SevenDays(this.sevenDay, {Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -149,7 +149,7 @@ class SevenDays extends StatelessWidget {
           itemBuilder: (BuildContext context, int index) {
             return Padding(
                 padding:
-                    EdgeInsets.only(left: 20, right: 20, bottom: 25, top: 12),
+                    const EdgeInsets.only(left: 20, right: 20, bottom: 25, top: 12),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -157,7 +157,7 @@ class SevenDays extends StatelessWidget {
                       sevenDay[index].day!,
                       style: custom_textStyle(20, Colors.white),
                     ),
-                    Container(
+                    SizedBox(
                       width: 135,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.start,
@@ -166,7 +166,7 @@ class SevenDays extends StatelessWidget {
                             image: AssetImage(sevenDay[index].image!),
                             width: 40,
                           ),
-                          SizedBox(width: 15),
+                          const SizedBox(width: 15),
                           Text(
                             sevenDay[index].name!,
                             style: custom_textStyle(14, Colors.white),
@@ -180,7 +180,7 @@ class SevenDays extends StatelessWidget {
                           "+" + sevenDay[index].max.toString() + "\u00B0",
                           style: custom_textStyle(20, Colors.white),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 5,
                         ),
                         Text(

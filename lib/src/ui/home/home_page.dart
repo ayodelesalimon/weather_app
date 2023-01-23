@@ -59,9 +59,9 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-          backgroundColor: Color(0xff030317),
+          backgroundColor: const Color(0xff030317),
           body: currentTemp == null
-              ? Center(child: CircularProgressIndicator())
+              ? const Center(child: CircularProgressIndicator())
               : SingleChildScrollView(
                   child: Column(
                     children: [CurrentWeather(getData), TodayWeather()],
@@ -97,19 +97,15 @@ class _CurrentWeatherState extends State<CurrentWeather> {
       },
       child: Container(
         // height: MediaQuery.of(context).size.height / 10 * 7,
-        margin: EdgeInsets.all(2),
-        padding: EdgeInsets.only(top: 10, left: 30, right: 30),
+        margin: const EdgeInsets.all(2),
+        padding: const EdgeInsets.only(top: 10, left: 30, right: 30),
         decoration: BoxDecoration(
           image: DecorationImage(
             image: AssetImage(currentTemp!.bgImag!),
             fit: BoxFit.cover,
           ),
         ),
-        // glowColor: Color(0xfffc1158).withOpacity(0.5),
-        // borderRadius: BorderRadius.only(
-        //     bottomLeft: Radius.circular(60), bottomRight: Radius.circular(60)),
-        // color: Color.fromARGB(255, 166, 166, 166),
-        //spreadRadius: 5,
+       
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
@@ -122,7 +118,7 @@ class _CurrentWeatherState extends State<CurrentWeather> {
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10)),
                           hintStyle: custom_textStyle(16, Colors.white),
-                          fillColor: Color(0xff030317),
+                          fillColor: const Color(0xff030317),
                           filled: true,
                           hintText: "Enter a city Name"),
                       textInputAction: TextInputAction.search,
@@ -133,7 +129,7 @@ class _CurrentWeatherState extends State<CurrentWeather> {
                               context: context,
                               builder: (BuildContext context) {
                                 return AlertDialog(
-                                  backgroundColor: Color(0xff030317),
+                                  backgroundColor: const Color(0xff030317),
                                   title: Text(
                                     "City not found",
                                     style: custom_textStyle(16, Colors.white),
@@ -172,13 +168,13 @@ class _CurrentWeatherState extends State<CurrentWeather> {
                   : Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Icon(
+                        const Icon(
                           CupertinoIcons.square_grid_2x2,
                           color: Colors.white,
                         ),
                         Row(
                           children: [
-                            Icon(CupertinoIcons.map_fill, color: Colors.white),
+                            const Icon(CupertinoIcons.map_fill, color: Colors.white),
                             GestureDetector(
                               onTap: () {
                                 searchbar = true;
@@ -187,7 +183,7 @@ class _CurrentWeatherState extends State<CurrentWeather> {
                               },
                               child: Text(
                                 " " + city,
-                                style: TextStyle(
+                                style: const TextStyle(
                                     fontWeight: FontWeight.bold, fontSize: 18),
                               ),
                             ),
@@ -195,14 +191,14 @@ class _CurrentWeatherState extends State<CurrentWeather> {
                         ),
                         IconButton(onPressed: (){
 
-                        }, icon: Icon(Icons.more_vert, color: Colors.white))
+                        }, icon: const Icon(Icons.more_vert, color: Colors.white))
                         
                       ],
                     ),
             ),
             Container(
-              margin: EdgeInsets.only(top: 10),
-              padding: EdgeInsets.all(10),
+              margin: const EdgeInsets.only(top: 10),
+              padding: const EdgeInsets.all(10),
               decoration: BoxDecoration(
                   border: Border.all(width: 0.2, color: Colors.white),
                   borderRadius: BorderRadius.circular(30)),
@@ -235,7 +231,7 @@ class _CurrentWeatherState extends State<CurrentWeather> {
                               style: custom_textStyle(
                                   50, Colors.black, FontWeight.w900),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 12,
                             ),
                             Text(
@@ -256,10 +252,10 @@ class _CurrentWeatherState extends State<CurrentWeather> {
                 ),
               ),
             ),
-            Divider(
+            const Divider(
               color: Colors.white,
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             ExtraWeather(currentTemp!)
@@ -271,10 +267,12 @@ class _CurrentWeatherState extends State<CurrentWeather> {
 }
 
 class TodayWeather extends StatelessWidget {
+  const TodayWeather({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(left: 10, right: 10, top: 6),
+      padding: const EdgeInsets.only(left: 10, right: 10, top: 6),
       child: Column(
         children: [
           Row(
@@ -292,7 +290,7 @@ class TodayWeather extends StatelessWidget {
                   }));
                 },
                 child: Row(
-                  children: [
+                  children: const [
                     Text(
                       "5 days ",
                       style: TextStyle(fontSize: 18, color: Colors.grey),
@@ -307,11 +305,11 @@ class TodayWeather extends StatelessWidget {
               )
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 15,
           ),
           Container(
-            margin: EdgeInsets.only(
+            margin: const EdgeInsets.only(
               bottom: 30,
             ),
             child: Row(

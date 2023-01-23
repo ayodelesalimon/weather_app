@@ -4,7 +4,7 @@ import 'package:weather_app_test/src/model/weather_data.dart';
 
 class ExtraWeather extends StatelessWidget {
   final Weather temp;
-  ExtraWeather(this.temp);
+  const ExtraWeather(this.temp, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -13,21 +13,21 @@ class ExtraWeather extends StatelessWidget {
       children: [
         Column(
           children: [
-            Icon(
+            const Icon(
               CupertinoIcons.wind,
               color: Colors.white,
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Text(
               temp.wind.toString() + " Km/h",
-              style: TextStyle(fontWeight: FontWeight.w700, fontSize: 16),
+              style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 16),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
-            Text(
+            const Text(
               "Wind",
               style: TextStyle(color: Colors.black54, fontSize: 16),
             )
@@ -35,21 +35,21 @@ class ExtraWeather extends StatelessWidget {
         ),
         Column(
           children: [
-            Icon(
+            const Icon(
               CupertinoIcons.sun_max,
               color: Colors.white,
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Text(
               temp.humidity.toString() + " %",
-              style: TextStyle(fontWeight: FontWeight.w700, fontSize: 16),
+              style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 16),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
-            Text(
+            const Text(
               "Humidity",
               style: TextStyle(color: Colors.black54, fontSize: 16),
             )
@@ -57,21 +57,21 @@ class ExtraWeather extends StatelessWidget {
         ),
         Column(
           children: [
-            Icon(
+            const Icon(
               CupertinoIcons.cloud_moon_rain,
               color: Colors.white,
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Text(
               temp.chanceRain.toString() + " %",
-              style: TextStyle(fontWeight: FontWeight.w700, fontSize: 16),
+              style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 16),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
-            Text(
+            const Text(
               "Rain",
               style: TextStyle(color: Colors.black54, fontSize: 16),
             )
